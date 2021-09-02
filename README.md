@@ -1,4 +1,4 @@
 ## SHOP APP
 
-This is a Shop App
+This is a Shop App App
 
