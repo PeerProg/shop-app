@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '../styles/Home.module.scss';
 import axios from 'axios';
 
@@ -24,14 +25,12 @@ export default function Home() {
 
         <div className={styles.grid}>
           {products.map(product => (
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.card}
-              key={product.id}
-            >
-              <h3>{product.title} &rarr;</h3>
-              <p>{product.description}</p>
-            </a>
+            <Link href={`/product/${product.id}`} key={product.id}>
+              <a className={styles.card}>
+                <h3>{product.title} &rarr;</h3>
+                <p>{product.description}</p>
+              </a>
+            </Link>
           ))}
         </div>
       </main>
