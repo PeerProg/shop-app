@@ -72,11 +72,21 @@
 }
 
 .grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 3rem;
+  margin: 3rem;
+}
+
+.grid img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 100px;
+  width: 75px;
 }
 
 .card {
@@ -113,9 +123,36 @@
   height: 1em;
 }
 
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.buttons button {
+  background-color: orange;
+  cursor: pointer;
+  color: white;
+  // font-size: medium;
+  // font-weight: 400;
+  border-radius: 8px;
+  border-color: transparent;
+  padding: 0.09rem;
+  width: 30%;
+}
+
+@media (max-width: 800px) {
+  .grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
