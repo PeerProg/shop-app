@@ -1,0 +1,26 @@
+.root {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.details {
+  width: 400px;
+  max-width: 400px;
+  padding-top: 80px;
+}
+
+.image {
+  max-width: 500px;
+  max-height: 500px;
+  border: 0;
+}
+
+.description {
+  max-width: 300px;
+}
+
+.title_section {
+  padding-bottom: 12px;
+  border-bottom: 1px solid grey;
+}
