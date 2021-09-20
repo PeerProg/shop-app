@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import CartIcon from './CartIcon';
 import styles from './Navbar.module.scss';
 
 const Navbar = () => {
@@ -14,10 +15,15 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div>
-        <Link href="/cart">
-          <a className={styles.navbar__item}>Cart</a>
-        </Link>
+      <div className={styles.cart}>
+        <span className={styles.cart__carticon}>
+          <CartIcon />
+        </span>
+        <span>
+          <Link href="/cart">
+            <a className={styles.navbar__item}>Cart</a>
+          </Link>
+        </span>
       </div>
     </header>
   );
