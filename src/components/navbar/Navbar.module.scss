@@ -1,6 +1,11 @@
+.links {
+  display: flex;
+}
+
 .navbar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   background: rebeccapurple;
   color: white;
