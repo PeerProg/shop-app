@@ -16,13 +16,11 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Shop App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to Shop App App</h1>
-
         <div className={styles.grid}>
           {products.map(product => (
             <Link href={`/product/${product.id}`} key={product.id}>
@@ -31,7 +29,6 @@ export default function Home() {
                   <img src={product.image} alt='Product image' />
                   <h5>{product.title} &rarr;</h5>
                   <h4>${product.price}</h4>
-                  {/* <p>{product.description}</p> */}
                 </div>
               </a>
             </Link>
