@@ -16,14 +16,15 @@ const Navbar = () => {
       </div>
 
       <div className={styles.cart}>
-        <span className={styles.cart__carticon}>
-          <CartIcon />
-        </span>
-        <span>
           <Link href="/cart">
-            <a className={styles.navbar__item}>Cart</a>
+            <a className={styles.navbar__item}>
+              <span className={styles.cart__carticon}>
+                <CartIcon />
+              </span>
+
+              <span>Cart </span>
+            </a>
           </Link>
-        </span>
       </div>
     </header>
   );
