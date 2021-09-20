@@ -6,10 +6,12 @@ import axios from 'axios';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios.get('/api/products').then(res => {
       setProducts(res.data);
+      setIsLoading(false)
     });
   }, []);
 
@@ -21,7 +23,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.grid}>
+        { isLoading && '....I am loading ooo......' }
+       { !isLoading && <div className={styles.grid}>
           {products.map(product => (
             <Link href={`/product/${product.id}`} key={product.id}>
               <a>
@@ -33,7 +36,7 @@ export default function Home() {
               </a>
             </Link>
           ))}
-        </div>
+        </div>}
       </main>
     </div>
   );
