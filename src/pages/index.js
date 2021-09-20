@@ -25,25 +25,16 @@ export default function Home() {
 
         <div className={styles.grid}>
           {products.map(product => (
-              <div className={styles.card}>
-                <img src={product.image} alt='Product image' />
-                <h5>{product.title} &rarr;</h5>
-                <h4>${product.price}</h4>
-                {/* <p>{product.description}</p> */}
-                <div className={styles.buttons}>
-                  <button>
-                    <Link href={`/product/${product.id}`} key={product.id}>
-                      <a>Details</a>
-                    </Link>
-                  </button>
-                  <button>
-                    <Link href={`/cart`} key={product.id}>
-                        <a>Add to Cart</a>
-                      </Link>
-                  </button>
+            <Link href={`/product/${product.id}`} key={product.id}>
+              <a>
+                <div className={styles.card}>
+                  <img src={product.image} alt='Product image' />
+                  <h5>{product.title} &rarr;</h5>
+                  <h4>${product.price}</h4>
+                  {/* <p>{product.description}</p> */}
                 </div>
-              </div>
-            
+              </a>
+            </Link>
           ))}
         </div>
       </main>
