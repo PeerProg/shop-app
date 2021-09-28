@@ -6,46 +6,37 @@ import axios from 'axios';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     axios.get('/api/products').then(res => {
       setProducts(res.data);
+      setIsLoading(false)
     });
   }, []);
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Shop App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Welcome to Shop App App</h1>
-
-        <div className={styles.grid}>
+        { isLoading && '....I am loading ooo......' }
+       { !isLoading && <div className={styles.grid}>
           {products.map(product => (
-              <div className={styles.card}>
-                <img src={product.image} alt='Product image' />
-                <h5>{product.title} &rarr;</h5>
-                <h4>${product.price}</h4>
-                {/* <p>{product.description}</p> */}
-                <div className={styles.buttons}>
-                  <button>
-                    <Link href={`/product/${product.id}`} key={product.id}>
-                      <a>Details</a>
-                    </Link>
-                  </button>
-                  <button>
-                    <Link href={`/cart`} key={product.id}>
-                        <a>Add to Cart</a>
-                      </Link>
-                  </button>
+            <Link href={`/product/${product.id}`} key={product.id}>
+              <a>
+                <div className={styles.card}>
+                  <img src={product.image} alt='Product image' />
+                  <h5>{product.title} &rarr;</h5>
+                  <h4>${product.price}</h4>
                 </div>
-              </div>
-            
+              </a>
+            </Link>
           ))}
-        </div>
+        </div>}
       </main>
     </div>
   );
